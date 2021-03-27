@@ -97,6 +97,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 	&& cd /usr/src/nginx-$NGINX_VERSION \
 	&& git clone https://github.com.cnpmjs.org/google/ngx_brotli.git \
 	&& cd ngx_brotli \
+	&& sed -i 's/github.com/github.com.cnpmjs.org/g' .gitmodules \
 	&& git submodule update --init --recursive \
 	&& cd /usr/src/nginx-$NGINX_VERSION \
 	&& git clone https://github.com.cnpmjs.org/cloudflare/zlib.git zlib-cf \
