@@ -29,7 +29,7 @@ jobs:
         id: get_nginx_latest_version
         run: |
           sudo apt install jq curl
-          LATEST_VERSION=$(curl -s "https://cdn.jsdelivr.net/gh/MoeLoli/package-version@latest/nginx-release.json" | jq ".data[0].version" | sed "s/\"//g")
+          LATEST_VERSION=$(curl -s "https://cdn.jsdelivr.net/gh/SoraJin424/package-version@latest/nginx-release.json" | jq ".data[0].version" | sed "s/\"//g")
           
           echo "::set-output name=nginx_version::${LATEST_VERSION}"
             
@@ -74,7 +74,7 @@ jobs:
         if: steps.get_nginx_latest_version.outputs.nginx_version != '' && steps.get_nginx_local_version.outputs.result == ''
         run: |
           sudo apt install jq curl
-          LATEST_VERSION=$(curl -s "https://cdn.jsdelivr.net/gh/MoeLoli/package-version@latest/openssl-release.json" | jq ".data[0].version" | sed "s/\"//g")
+          LATEST_VERSION=$(curl -s "https://cdn.jsdelivr.net/gh/SoraJin424/package-version@latest/openssl-release.json" | jq ".data[0].version" | sed "s/\"//g")
           echo "::set-output name=openssl_version::${LATEST_VERSION}"
       
       - name: BUILD AND PUSH (NORMAL)
